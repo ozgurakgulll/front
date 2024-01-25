@@ -17,11 +17,9 @@ export function CTab({ tabs }: { tabs: TabInterface[] }) {
   const buttonRefs: RefObject<HTMLButtonElement>[] = tabs.map(() => useRef(null));
   useEffect(() => {
     setActiveTab(0);
-    buttonRefs[0].current?.focus();
   }, []);
 
   const handleTabClick =useCallback((index: number) =>  {
-    buttonRefs[index].current?.focus();
     setActiveTab(index);
   },[])
   const handleTabDragStart = (index: number, e: DragEvent<HTMLDivElement>) => {
@@ -72,11 +70,16 @@ export function CTab({ tabs }: { tabs: TabInterface[] }) {
             onDragStart={(e) => handleTabDragStart(index, e)}
           >
             <div className={styleSpin['spin-button']}>
-              <button key={index} ref={buttonRefs[index]}  className={`${styleSpin['circle']}  ${styleSpin['spin']}`}>
+              <button key={index} ref={buttonRefs[index]}  className={
+                classNames(`${styleSpin['circle']}  ${styleSpin['spin']}`,
+                  index === activeTab &&
+                  styleSpin['spin_focus'],
+                )}>
                 <div
-                  className={classNames(styles['tab-button-icon'], {
+                  className={classNames(styles['tab-button-icon'],
+                  {
                     'text-sky-500': index === activeTab,
-                    'text-stone-500': index !== activeTab
+                    'text-stone-500': index !== activeTab,
                   }
 
                   )}>

@@ -30,7 +30,7 @@
   }
 
   .spin:hover::before,
-  .spin:focus::before {
+  .spin_focus::before {
     @apply border-sky-500
   }
 
@@ -39,7 +39,7 @@
   }
 
   .spin:hover::after,
-  .spin:focus::after {
+  .spin_focus::after {
     border-top: 2px solid #0381FF;
     border-left-width: 2px;
     border-right-width: 2px;
@@ -47,12 +47,12 @@
     transition: transform 0.4s linear 0s, border-left-width 0s linear 0.35s;
   }
 
-  .spin:focus {
+  .spin_focus {
     outline: none;
   }
 
-  .spin:not(:focus)::before,
-  .spin:not(:focus)::after {
+  .spin:not(.spin_focus)::before,
+  .spin:not(.spin_focus)::after {
     border-color: transparent;
   }
 
