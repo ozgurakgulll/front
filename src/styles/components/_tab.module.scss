@@ -1,4 +1,6 @@
 .tab-container {
+  position: absolute;
+  z-index: 2;
   @apply overflow-x-auto  bg-white w-full h-[124px] flex justify-between
 }
 

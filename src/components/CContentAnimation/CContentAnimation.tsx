@@ -20,12 +20,12 @@ export function CContentAnimation({ type }: { type: 'batch' | 'advanced' | 'expo
                 <img src="/src/public/sign.png" className={'w-[270px] h-[340px] mt-[63px] mr-[24px]'}
                      alt={'scanner'}></img>
                 <div className={styles['image-one']}>
-                  <img src="/src/public/sign-left.png" className={'w-[217px] h-[143px] px-14 mt-[64px] fixed ml-[-148px]'}
+                  <img src="/src/public/sign-left.png" className={'w-[217px] h-[143px] px-14 mt-[64px] ml-[-148px]'}
                        alt={'scanner'}></img>
                 </div>
                 <div className={styles['image-two']}>
                   <img src="/src/public/sign-right.png"
-                       className={'w-[217px] h-[143px] px-14 mt-[64px] fixed ml-[148px]'}
+                       className={'w-[217px] h-[143px] px-14 mt-[64px] ml-[148px]'}
                        alt={'scanner'}></img>
                 </div>
               </div>
@@ -33,7 +33,7 @@ export function CContentAnimation({ type }: { type: 'batch' | 'advanced' | 'expo
           }
           {
             type === 'batch' &&
-            <div className={'space-y-20 relative'}>
+            <div className={'space-y-20 relative images-container'}>
             <img src="/src/public/batch.png" className={'w-[270px] h-[340px] mt-[63px] mr-[24px]'}
                    alt={'scanner'}></img>
               <div className={styles['image-one']}>
