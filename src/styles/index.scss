@@ -1,0 +1,23 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+@layer components {
+BODY {
+  margin: 0;
+  padding: 0;
+  @apply h-screen font-sans bg-[#F5F5F7];
+  overflow: hidden;
+  font-family: 'SF Pro Display', 'Inter', sans-serif;
+}
+
+#root {
+  @apply h-full;
+}
+}
+.tab-panel {
+  display: none;
+  &.active {
+    display: block;
+    height: 100%;
+  }
+}

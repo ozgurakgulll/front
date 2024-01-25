@@ -1,0 +1,27 @@
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 1s ease-out;
+}
+.info-content{
+  @apply flex-col justify-start lg:items-end gap-8 inline-flex pr-0 lg:pr-28 items-center pt-5
+}
+.text-header{
+  @apply lg:text-right items-center  text-sky-500 text-base font-extrabold  uppercase tracking-widest
+}
+.text-title{
+  @apply  lg:text-right items-center   text-slate-900 text-[32px] font-bold  leading-10
+}
+.text-info{
+  @apply  lg:text-right items-center   text-slate-900 text-sm  lg:text-xl  leading-loose tracking-wide
+}
+.info-button{
+  @apply  py-2.5 px-5 me-2 mb-2 text-sm   bg-white rounded-lg border border-solid border-black border-opacity-10
+}

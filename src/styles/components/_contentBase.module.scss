@@ -1,0 +1,9 @@
+.content-main{
+  @apply flex flex-col md:flex-row  h-full text-center
+}
+.content-right{
+  @apply order-2 lg:order-1 lg:w-1/2 mt-auto
+}
+.content-left{
+  @apply order-1  lg:order-2 lg:w-1/2 self-center lg:text-right
+}

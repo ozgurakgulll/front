@@ -1,0 +1,15 @@
+.tab-container {
+  @apply overflow-x-auto  bg-white w-full h-[124px] flex justify-between
+}
+
+.tab-button {
+  @apply text-xl font-medium leading-7 cursor-pointer p-8 whitespace-nowrap flex space-x-2  min-w-[301px] w-full justify-center items-center   border-0 border-solid border-r border-black border-opacity-5;
+}
+
+.tab-button-icon {
+  @apply min-w-14 min-h-14 rounded-full  flex justify-center items-center  border-2 border-solid border-black border-opacity-10;
+}
+
+.tab-panel {
+   @apply hidden  active:block active:h-full
+}

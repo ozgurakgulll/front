@@ -1,0 +1,60 @@
+.container-animation {
+  overflow: hidden;
+  @apply relative
+}
+
+.animate-slide-up {
+  animation: fadeInUp 1s ease-out;
+}
+
+@keyframes slide-up {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.image-one {
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: fadeInUp 1s ease backwards;
+  animation-delay: 600ms;
+}
+
+.image-two {
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: fadeInUp 1s ease backwards;
+  animation-delay: 800ms;
+}
+
+.image-three {
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: fadeInUp 1s ease backwards;
+  animation-delay: 1000ms;
+}
+
+.image-four {
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: fadeInUp 1s ease backwards;
+  animation-delay: 1300ms;
+}
+
+@keyframes fadeInUp {
+  0% {
+    transform: translate(0px, 100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(0px, 0);
+    opacity: 1;
+  }
+}
