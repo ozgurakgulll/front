@@ -1,6 +1,7 @@
-import { useRef, useState, DragEvent, ReactNode, ReactElement } from 'react';
+import { useRef, useState, DragEvent, ReactNode, ReactElement, RefObject, useEffect, useCallback } from 'react';
 import classNames from 'classnames';
 import styles from './../../styles/components/_tab.module.scss';
+import styleSpin from './../../styles/components/_buttonSpiner.module.scss';
 import { CIcon } from '../CIcon/CIcon';
 import { cIconAdvanced, cIconBatch, cIconDocument, cIconExport, cIconSign } from '../CIcon';
 
@@ -13,11 +14,16 @@ interface TabInterface {
 export function CTab({ tabs }: { tabs: TabInterface[] }) {
   const [activeTab, setActiveTab] = useState(0);
   const tabsContainerRef = useRef<HTMLDivElement>(null);
+  const buttonRefs: RefObject<HTMLButtonElement>[] = tabs.map(() => useRef(null));
+  useEffect(() => {
+    setActiveTab(0);
+    buttonRefs[0].current?.focus();
+  }, []);
 
-  const handleTabClick = (index: number) => {
+  const handleTabClick =useCallback((index: number) =>  {
+    buttonRefs[index].current?.focus();
     setActiveTab(index);
-  };
-
+  },[])
   const handleTabDragStart = (index: number, e: DragEvent<HTMLDivElement>) => {
     e.dataTransfer.setData('text/plain', index.toString());
   };
@@ -35,12 +41,13 @@ export function CTab({ tabs }: { tabs: TabInterface[] }) {
     setActiveTab(draggedTabIndex);
   };
 
+
   return (
     <div className={'w-full h-full'}>
       <div className={'h-full bg-[#FBFCFC]'}>
-        {tabs.map((tab:TabInterface, index) => (
+        {tabs.map((tab: TabInterface, index) => (
           <div key={index}
-               className={classNames('tab-panel',{'active':index === activeTab})}
+               className={classNames('tab-panel', { 'active': index === activeTab })}
           >
             {tab.content}
           </div>
@@ -64,12 +71,18 @@ export function CTab({ tabs }: { tabs: TabInterface[] }) {
             draggable
             onDragStart={(e) => handleTabDragStart(index, e)}
           >
-            <div
-              className={classNames(styles['tab-button-icon'], {
-                'text-sky-500': index === activeTab,
-                'text-stone-500 ': index !== activeTab
-              })}>
-              {getIconComponent(tab.icon)}
+            <div className={styleSpin['spin-button']}>
+              <button key={index} ref={buttonRefs[index]}  className={`${styleSpin['circle']}  ${styleSpin['spin']}`}>
+                <div
+                  className={classNames(styles['tab-button-icon'], {
+                    'text-sky-500': index === activeTab,
+                    'text-stone-500': index !== activeTab
+                  }
+
+                  )}>
+                  {getIconComponent(tab.icon)}
+                </div>
+              </button>
             </div>
             <span>{tab.tabName}</span>
           </div>

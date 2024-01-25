@@ -1,7 +1,7 @@
 .tab-container {
   position: absolute;
   z-index: 2;
-  @apply overflow-x-auto  bg-white w-full h-[124px] flex justify-between
+  @apply overflow-x-auto  bg-white w-full h-[124px] flex justify-between absolute
 }
 
 .tab-button {
@@ -9,7 +9,7 @@
 }
 
 .tab-button-icon {
-  @apply min-w-14 min-h-14 rounded-full  flex justify-center items-center  border-2 border-solid border-black border-opacity-10;
+  @apply  flex justify-center items-center
 }
 
 .tab-panel {

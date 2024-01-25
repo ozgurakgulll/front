@@ -1,4 +1,6 @@
 .content-main{
+  overflow: hidden;
+  position: relative;
   @apply flex flex-col md:flex-row  h-full text-center
 }
 .content-right{

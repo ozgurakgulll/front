@@ -7,6 +7,9 @@
   animation: fadeInUp 1s ease-out;
 }
 
+.images-container {
+  overflow: hidden;
+}
 @keyframes slide-up {
   0% {
     transform: translateY(100%);
@@ -14,10 +17,6 @@
   100% {
     transform: translateY(0);
   }
-}
-
-.images-container {
-  overflow: hidden;
 }
 
 .image-one {
